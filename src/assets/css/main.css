@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-image: url("../images/bg.png");
+  background-size: cover;
+}
+
+.forecast {
+  max-width: 900px;
+  width: 100%;
+  margin: 50px auto;
+}
+
+.todays-weather {
+  display: flex;
+  justify-content: space-around;
+}
+
+.local-weather,
+.sea-forecast-report {
+  padding: 25px 40px;
+  background-color: RGBA(75, 68, 122, 0.19);
+  border-radius: 10px;
+}
+
+.local-weather {
+  width: 40%;
+}
+
+.sea-forecast-report {
+  width: 55%;
+}
+
+.heading {
+  padding: 0 20px 10px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #fff;
+  border-bottom: 1px solid#fff;
+  text-align: center;
+}
+
+.weather-opt {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0 0;
+}
+
+.weather-first {
+  margin-right: 50px;
+}
+
+.weather-sec {
+  position: relative;
+}
+
+.weather-sec h2 {
+  letter-spacing: 3px;
+  font-size: 21pt;
+  color: #fff;
+}
+
+.temp {
+  position: absolute;
+  bottom: 0;
+}
+
+.temp h3 {
+  position: relative;
+  letter-spacing: 3px;
+  font-size: 17px;
+  color: #fff;
+}
+
+.temp h3 span {
+  position: absolute;
+  top: 0;
+  font-size: 11px;
+}
+
+.wind {
+  text-align: center;
+  color: #fff;
+  font-size: 11px;
+}
+
+.lists {
+  margin-top: 10px;
+}
+
+.temp-cat {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+}

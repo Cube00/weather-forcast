@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { weatherApi } from "../api/api";
+import TodaysWeather from "./todaysWeather";
 
 const Weather = ({ getData, state }) => {
   useEffect(() => {
@@ -13,9 +14,13 @@ const Weather = ({ getData, state }) => {
       });
   }, [getData]);
 
-  console.log(state);
-
-  return <>weather forecast</>;
+  return (
+    <>
+      <div className="forecast">
+        <TodaysWeather state={state} />
+      </div>
+    </>
+  );
 };
 
 const mapStateToProps = ({ weatherReducer: state }) => {
