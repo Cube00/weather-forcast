@@ -50,7 +50,7 @@ body {
 .weather-opt {
   display: flex;
   justify-content: center;
-  padding: 15px 0 0;
+  padding: 15px 0;
 }
 
 .weather-first {
@@ -63,13 +63,16 @@ body {
 
 .weather-sec h2 {
   letter-spacing: 3px;
-  font-size: 21pt;
-  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  color: #98bee3;
 }
 
-.temp {
-  position: absolute;
-  bottom: 0;
+.weather-sec h3 {
+  letter-spacing: 3px;
+  font-size: 21px;
+  text-align: center;
+  color: #fff;
 }
 
 .temp h3 {
@@ -92,13 +95,27 @@ body {
 }
 
 .lists {
-  margin-top: 10px;
+  margin-top: 18px;
 }
 
 .temp-cat {
   display: flex;
   justify-content: space-between;
+  margin-bottom:4px;
   color: #fff;
   font-size: 14px;
   letter-spacing: 2px;
+}
+
+.cels-far {
+  position: absolute;
+  bottom:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.img-weath {
+  width:130px;
 }

@@ -1,34 +1,19 @@
 const TodaysWeather = ({ state }) => {
-  const todayData = new Date().toJSON().slice(0, 10).replace(/-/g, "-");
-
-  if (state) {
-    var todaysList = state.data.list.filter((e) => {
-      return e.dt_txt.includes(todayData);
-    });
-    var {
-      temp,
-      feels_like,
-      grnd_level,
-      humidity,
-      pressure,
-      sea_level,
-      temp_max,
-      temp_min,
-    } = todaysList[0].main;
-    var { description, main, icon } = todaysList[0].weather[0];
-    var { deg, gust, speed } = todaysList[0].wind;
+  if(state){
+    var {wind_cdir_full, clouds,clouds_low,clouds_mid,high_temp,wind_dir,wind_gust_spd,wind_spd,} = state.data.data[0];
+    var {description, icon} = state.data.data[0].weather;
     var image = require(`../assets/icons/${icon}.png`).default;
+  
+    //get temperature
+    var farenheit = (high_temp * 1.8) + 32;
   }
-
-  //get temperature
-  const celsius = temp - 273.15;
-  const farenheit = temp * (9 / 5) - 459.67;
 
   //get week days
   const defaultData = new Date();
-  const array = ['Sunday','Monday','Tuesday','Wednesday','Thusday','Friday','Saturday'];
+  const array = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THUSDAY','FRIDAY','SATURDAY'];
 
   const weekDay = array[defaultData.getDay()];
+
 
   return (
     <>
@@ -39,14 +24,14 @@ const TodaysWeather = ({ state }) => {
             <div className="weather-opt">
               <div className="weather-first">
                 <img className="img-weath" src={image} alt="" />
-                <div className="wind">{gust} KM/H</div>
+                <div className="wind">{wind_gust_spd} KM/H</div>
               </div>
               <div className="weather-sec">
-                <h2>{main.toUpperCase()}</h2>
                 <h3>{weekDay}</h3>
-                <div className="temp">
+                <h2>{description}</h2>
+                <div className="temp cels-far">
                   <h3>
-                    {celsius.toFixed()}
+                    {high_temp.toFixed()}
                     <span>o</span> C
                   </h3>
                   <h3>
@@ -58,35 +43,35 @@ const TodaysWeather = ({ state }) => {
             </div>
           </div>
           <div className="sea-forecast-report">
-            <h2 className="heading">SEA FORECAST REPORT</h2>
+            <h2 className="heading">ADDITIONAL FORECAST REPORT</h2>
             <div className="lists">
               <div className="temp-cat">
-                <span>Feels Like</span>
-                <span>{feels_like}</span>
+                <span>CLOUDS</span>
+                <span>{clouds}</span>
               </div>
               <div className="temp-cat">
-                <span>Ground Level</span>
-                <span>{grnd_level}</span>
+                <span>CLOUDS MID</span>
+                <span>{clouds_mid}</span>
               </div>
               <div className="temp-cat">
-                <span>Humidity</span>
-                <span>{humidity}</span>
+                <span>CLOUDS LOW</span>
+                <span>{clouds_low}</span>
               </div>
               <div className="temp-cat">
-                <span>Pressure</span>
-                <span>{pressure}</span>
+                <span>MAX TEMPERATURE</span>
+                <span>{high_temp}</span>
               </div>
               <div className="temp-cat">
-                <span>Sea Level</span>
-                <span>{sea_level}</span>
+                <span>WIND</span>
+                <span>{wind_dir}</span>
               </div>
               <div className="temp-cat">
-                <span>Min Temperature</span>
-                <span>{temp_min}</span>
+                <span>WIND SPEED</span>
+                <span>{wind_spd}</span>
               </div>
               <div className="temp-cat">
-                <span>Max Temperature</span>
-                <span>{temp_max}</span>
+                <span>WIND DIRECTION</span>
+                <span>{wind_cdir_full}</span>
               </div>
             </div>
           </div>
