@@ -1,5 +1,6 @@
 const TodaysWeather = ({ state }) => {
   const todayData = new Date().toJSON().slice(0, 10).replace(/-/g, "-");
+
   if (state) {
     var todaysList = state.data.list.filter((e) => {
       return e.dt_txt.includes(todayData);
@@ -18,8 +19,23 @@ const TodaysWeather = ({ state }) => {
     var { deg, gust, speed } = todaysList[0].wind;
     var image = require(`../assets/icons/${icon}.png`).default;
   }
+
+  //get temperature
   const celsius = temp - 273.15;
   const farenheit = temp * (9 / 5) - 459.67;
+
+  //get week days
+  const defaultData = new Date();
+  const array = new Array(7);
+  array[0] = 'Sunday';
+  array[1] = 'Monday';
+  array[2] = 'Tuesday';
+  array[3] = 'Wednesday';
+  array[4] = 'Thusday';
+  array[5] = 'Friday';
+  array[6] = 'Saturday';
+
+  const weekDay = array[defaultData.getDay()];
 
   return (
     <>
@@ -34,6 +50,7 @@ const TodaysWeather = ({ state }) => {
               </div>
               <div className="weather-sec">
                 <h2>{main.toUpperCase()}</h2>
+                <h3>{weekDay}</h3>
                 <div className="temp">
                   <h3>
                     {celsius.toFixed()}
