@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { weatherApi } from "../api/api";
 import TodaysWeather from "./todaysWeather";
+import SixDayWeather from './sixdayweather';
 
 const Weather = ({ getData, state }) => {
+  const array = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+
   useEffect(() => {
     fetch(weatherApi("Tbilisi"))
       .then((response) => {
@@ -17,7 +20,8 @@ const Weather = ({ getData, state }) => {
   return (
     <>
       <div className="forecast">
-        <TodaysWeather state={state} />
+        <TodaysWeather state={state} array={array} />
+        <SixDayWeather state={state} array={array} />
       </div>
     </>
   );

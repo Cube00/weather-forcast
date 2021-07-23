@@ -1,8 +1,8 @@
-const TodaysWeather = ({ state }) => {
+const TodaysWeather = ({ state, array }) => {
   if(state){
     var {wind_cdir_full, clouds,clouds_low,clouds_mid,high_temp,wind_dir,wind_gust_spd,wind_spd,} = state.data.data[0];
     var {description, icon} = state.data.data[0].weather;
-    var image = require(`../assets/icons/${icon}.png`).default;
+    var image = `${process.env.PUBLIC_URL}/assets/icons/${icon}.png`;
   
     //get temperature
     var farenheit = (high_temp * 1.8) + 32;
@@ -10,7 +10,6 @@ const TodaysWeather = ({ state }) => {
 
   //get week days
   const defaultData = new Date();
-  const array = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THUSDAY','FRIDAY','SATURDAY'];
 
   const weekDay = array[defaultData.getDay()];
 
@@ -35,7 +34,7 @@ const TodaysWeather = ({ state }) => {
                     <span>o</span> C
                   </h3>
                   <h3>
-                    {farenheit.toFixed()}
+                    {farenheit.toFixed(1)}
                     <span>o</span> F
                   </h3>
                 </div>

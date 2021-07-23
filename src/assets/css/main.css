@@ -119,3 +119,36 @@ body {
 .img-weath {
   width:130px;
 }
+
+.week-weather{
+  padding: 25px 40px;
+  background-color: RGBA(75, 68, 122, 0.19);
+  border-radius: 10px;
+  margin:35px 1.4%;
+  display: flex;
+  justify-content: space-between
+}
+
+.eachDayWeek h2 {
+  letter-spacing: 3px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+.temperature-weekdayz h3 {
+  position: relative;
+  letter-spacing: 3px;
+  font-size: 17px;
+  color: #fff;
+}
+
+.temperature-weekdayz h3 span{
+  position: absolute;
+  top: 0;
+  font-size: 11px;
+}
+
+.temperature-weekdayz {
+  text-align: center;
+}
